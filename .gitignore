@@ -1,0 +1,15 @@
+# Local build products and locally configured network settings must not be published.
+Firmware/ESP32/build/
+Firmware/ESP32/sdkconfig.old
+Firmware/STM32/Debug/
+Firmware/STM32/Release/
+Firmware/STM32/ReleaseRecipe/*.elf
+Firmware/STM32/ReleaseRecipe/*.bin
+Firmware/STM32/ReleaseRecipe/*.map
+Firmware/STM32/ReleaseRecipe/*.list
+Firmware/STM32/ReleaseRecipe/**/*.o
+Firmware/STM32/ReleaseRecipe/**/*.d
+Firmware/STM32/ReleaseRecipe/**/*.su
+*.kicad_prl
+~*.lck
+*-backups/

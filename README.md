@@ -1,29 +1,23 @@
-# PhD research artefacts
+# Online Appendix
 
-Research firmware and hardware accompanying Matthew Rhys Barras's University of Hull PhD thesis, *Toward Mobile Neuroimaging: Design and Implementation of a Real-Time Multi-Modal EEG/fNIRS System*.
+Hardware and embedded firmware accompanying Matthew Rhys Barras's University of Hull PhD thesis, *Toward Mobile Neuroimaging: Design and Implementation of a Real-Time Multi-Modal EEG/fNIRS System*.
 
-This collection is prepared for **restricted online access by the reviewer**, not public release or insertion into the thesis. It contains cleaned copies of the study artefacts, with the provenance and changes described in [PROVENANCE.md](PROVENANCE.md). Preserved originals remain unchanged in the private evidence archive.
+## Contents
 
-| Directory | Contents and version |
-| --- | --- |
-| [Firmware/ESP32](Firmware/ESP32/README.md) | ESP32-S2 communications source associated with the 21 March 2022 build |
-| [Firmware/STM32](Firmware/STM32/README.md) | STM32H743 acquisition source associated with the 30 March 2022 Release build, vendor dependencies and historical build recipe |
-| [Hardware](Hardware/README.md) | Revision 3 KiCad project, July 2022, and separately preserved July fabrication outputs |
+| Directory | Contents | Thesis reference |
+| --- | --- | --- |
+| [Hardware](Hardware/README.md) | Revision 3 KiCad main-board project and July 2022 fabrication files | Chapter 3; Appendix A |
+| [Firmware/STM32](Firmware/STM32/README.md) | STM32H743 acquisition firmware, 30 March 2022 snapshot | Chapter 4; Appendix B |
+| [Firmware/ESP32](Firmware/ESP32/README.md) | ESP32-S2 communications firmware, 21 March 2022 snapshot | Chapter 4; Appendix B |
 
-The evaluated communication path is STM32 acquisition → ESP32-S2 SPI-to-TCP forwarding → custom Python receiver → PC-side Lab Streaming Layer (LSL). Direct ESP32-to-LSL streaming is later development and is not included here. Earlier Pyboard and STM32 prototypes and the separate Chapter 6 EEG replay classifier are outside this collection.
+The study data path is STM32 acquisition → ESP32-S2 TCP forwarding → Python receiver → PC-side Lab Streaming Layer (LSL). The firmware retains the study packet format and optical schedule described in Chapter 4.
 
-The firmware association with the March 2022 study rests on preserved build dates and matching packet and recording content. No per-session flashing log survives. The author confirmed that the integrated board used for the March recordings was the design represented by the July revision 3 CAD; the exact March fabrication files and component population are not established by the July files.
+This repository covers the main-board design and study streaming firmware. The host application, recordings, mechanical designs and earlier development versions listed in the thesis are separate artefacts. Chapter 6's replay experiment is available as [Edge EEG Workload Classification v1.0.0](https://doi.org/10.5281/zenodo.20452990).
 
-## Use and citation
+## Using the files
 
-Start with the component READMEs. This is research source, not a turnkey acquisition system: the historical Python receiver is a separate dependency, local network settings must be supplied, and exact historical rebuilds have limitations. No participant recordings or original credential-bearing binaries are included.
+Start with the component READMEs for project layout, toolchains, configuration and build instructions. The hardware README explains how to open the KiCad project. These are research-prototype files; fabrication and participant use require appropriate engineering and safety review.
 
-Please cite the thesis by its title and author above and identify this collection by its archive SHA-256 and the component snapshot dates. No DOI has been assigned to this collection. The intended thesis and artefact access page is [matthewbarras.com/phd](https://matthewbarras.com/phd); a publicly downloadable thesis or repository thesis DOI was not verified during preparation.
+[PROVENANCE.md](PROVENANCE.md) records snapshot identifiers and preparation changes. [REVIEW.md](REVIEW.md) summarises verification. Existing attribution and licence notices are retained; see [LICENSING.md](LICENSING.md).
 
-The related platform paper is [Barras et al., Sensors 2026, DOI 10.3390/s26041342](https://doi.org/10.3390/s26041342). The separate Chapter 6 artefact is [Edge EEG Workload Classification v1.0.0](https://doi.org/10.5281/zenodo.20452990); it concerns replayed, preprocessed EEG and is not the acquisition firmware in this collection.
-
-## Licensing and limits
-
-Existing copyright, attribution and licence notices are retained in the files and summarised in [LICENSING.md](LICENSING.md). Selecting a public-release licence is outside this private reviewer handoff.
-
-The thesis demonstrations support functional operation and physiological plausibility. They do not establish clinical validation, comprehensive ambulatory validation or regulatory readiness. The design must not be treated as approved for clinical use or as a verified manufacturing package. See [REVIEW.md](REVIEW.md) for unresolved items and verification results.
+For citation, use the thesis title and author above, together with the relevant snapshot date or archive checksum. The thesis artefact access route is [matthewbarras.com/phd](https://matthewbarras.com/phd).

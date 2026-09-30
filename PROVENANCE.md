@@ -1,6 +1,6 @@
-# Provenance and publication change ledger
+# Snapshot identifiers and change ledger
 
-Prepared 30 September 2026. This candidate is derived from the study source and verified revision 3 archive; it is not a later firmware rewrite. Source identity is recorded by hashes because no source-control commit is established for the two local firmware snapshots.
+Prepared 30 September 2026 from the March 2022 study firmware and July 2022 revision 3 hardware. The firmware build hashes below are the identifiers listed in thesis Appendix B. Originals remain unchanged in the author's evidence archive.
 
 | Preserved original | SHA-256 |
 | --- | --- |
@@ -14,11 +14,11 @@ Prepared 30 September 2026. This candidate is derived from the study source and 
 | Earlier PCB inside the source ZIP, 15 July 2022 14:37:12 | `4d30cfdb4a4ace5f22cbb350cfa149e7041f613be833e6bd94590446447efd3c` |
 | Separate 15 July 2022 fabrication ZIP | `64adf6c37c6a710a4e4d792d957dc0484377da9a16fb40b9c8a8860508a579c0` |
 
-The hardware archive was independently retrieved from its private repository and compared byte-for-byte by SHA-256. Its Git blob ID is `4a71b1dacb59477e811960788c41c4c6abbc14a1`, at inspected commit `d50d4b3d22bedd5c237dd0a5a69f158319e18c09`. Those identifiers verify the archive's identity, not public availability or licensing.
+The hardware archive matches Git blob `4a71b1dacb59477e811960788c41c4c6abbc14a1` at commit `d50d4b3d22bedd5c237dd0a5a69f158319e18c09`, verified by SHA-256.
 
-The primary hardware copy uses the later same-day preserved 15:24 PCB beside the July fabrication outputs. Compared with the archived 14:37 board, it has historical silkscreen edits and additional precision in four rounded-pad ratios. The accompanying project and seven schematic sheets match the archive after line-ending normalisation. The per-file comparison baseline for the public CAD is this latest preserved loose set, not the earlier ZIP. No historical difference is represented as a publication cleanup.
+The selected 15:24 PCB contains same-day silkscreen updates and additional precision in four rounded-pad ratios compared with the 14:37 archive copy. Its project and seven schematic sheets match the archive after line-ending normalisation. Preparation checks use the selected 15:24 original as the baseline.
 
-The build and recording association is based on dates, packet format, optical state pattern and stream content. It is not proof from a preserved programming event. Earlier development strata remain private. The independent edge-replay release and later direct-LSL development are not replacements for these sources.
+Appendix B records the study-build association. Earlier firmware, later direct-LSL development and the edge-replay release are separate artefacts.
 
 ## Changes from originals
 
@@ -26,12 +26,12 @@ The build and recording association is based on dates, packet format, optical st
 | --- | --- |
 | Whitespace/formatting | Existing line-ending styles retained; local spacing/newlines change around rewritten comments. No whole-project formatter applied. |
 | Comment/documentation | ESP32 forwarding/handshake comments corrected; unused commented alternative implementations removed. STM32 record packing, optical phase, retry state and HAL timeout comments clarified. New READMEs, provenance, licensing and review notes added. |
-| Identifier presentation | Two STM32 identifiers renamed consistently to `IndicateADSError` and `adsInitAttemptState`. They remain the same functions/state with the same call sites, operations and constants. Symbol names change, so binary identity is not claimed. |
+| Identifier presentation | Two STM32 identifiers renamed consistently to `IndicateADSError` and `adsInitAttemptState`, retaining their call sites, operations and constants. |
 | Credential/personal-data redaction | ESP32 AP and station credentials replaced by explicit local-configuration placeholders; unused private-IP macro removed; credential-printing log call removed. The STM32 makefile's absolute linker path becomes relative. Two optional PCB 3D-model references to private workstation paths removed. |
 | File exclusion | Original firmware binaries, build caches, logs, workspace metadata and launch preferences omitted; build inputs and vendor source retained. KiCad autosaves, caches, personal settings, legacy inactive sheets, old PDFs, old Gerbers, redundant archives and unverified standalone downloaded libraries/models omitted. No original was deleted. |
-| Executable behaviour | No acquisition, protocol, pin, register, scheduler or packet logic change. Network identifiers/secrets require local replacement. One startup credential log is removed, changing diagnostic output and startup execution time. These safety edits are explicit exceptions to byte-for-byte behaviour preservation. |
+| Executable behaviour | Acquisition, protocol, pin, register, scheduler and packet logic retained. Network settings require local configuration. Removing the credential log changes startup diagnostic output and execution time. |
 | Circuit/PCB | No electrical or layer-geometry change. Two optional 3D references removed; a verified-dead download URL removed from footprint descriptions while retaining the IPC document/page attribution. |
 
-Every copied file is compared with its preserved original. C/H token comparisons ignore comments/whitespace and allow only the documented identifier renames, network substitutions, unused-address definition removal and credential-log removal. All historical STM32 link-input source files and all ESP32 CMake application inputs are retained. This is a source-level check, not a proof of timing or compiled equivalence.
+Every copied file is compared with its original. C/H token checks allow the documented changes above. All STM32 link-input sources and ESP32 CMake application inputs are retained. These checks establish source-level preservation; builds are summarised in [REVIEW.md](REVIEW.md).
 
-`FILE-PROVENANCE.csv` in the complete collection gives per-file original/public hashes. The private evidence record additionally contains source locators, exclusions and tool output. Download archives contain their own per-file `SHA256SUMS`; the adjacent download manifest lists archive SHA-256 values. Raw originals and raw build outputs are deliberately not embedded in public downloads.
+`FILE-PROVENANCE.csv` in the complete collection gives per-file original and prepared-file hashes. Download archives include per-file `SHA256SUMS`; the adjacent manifest lists archive checksums. Original binaries and detailed preparation logs are retained separately.

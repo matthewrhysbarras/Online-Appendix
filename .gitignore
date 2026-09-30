@@ -7,6 +7,7 @@ Firmware/STM32/ReleaseRecipe/*.elf
 Firmware/STM32/ReleaseRecipe/*.bin
 Firmware/STM32/ReleaseRecipe/*.map
 Firmware/STM32/ReleaseRecipe/*.list
+!Firmware/STM32/ReleaseRecipe/objects.list
 Firmware/STM32/ReleaseRecipe/**/*.o
 Firmware/STM32/ReleaseRecipe/**/*.d
 Firmware/STM32/ReleaseRecipe/**/*.su

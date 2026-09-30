@@ -4,7 +4,7 @@ Generated from `PhD-Artefacts/` by `bash scripts/package_artefacts.sh`. Prepared
 
 | Archive | Bytes | SHA-256 |
 | --- | ---: | --- |
-| PhD-Artefacts-review.zip | 1,801,707 | `ec3d627da98f7e2cf5c0575cfa44c5b73678dcc19965b5df839177b97e6e32cf` |
+| PhD-Artefacts-review.zip | 1,801,716 | `bd33e6cd6f07a44a8c7144913b0e661a3cae3875293ceb03f3045999ef2f7675` |
 | PhD-Firmware-study-review.zip | 1,047,450 | `f5f919e4ad6c940fb0e7aeb749c2fac46fc26764b1977177aac8ab7c6d925690` |
 | PhD-Hardware-rev3-review.zip | 751,411 | `04c052933ee69ec7026e5b6088e01b75653a97506854c337071071b68f08b0fd` |
 
